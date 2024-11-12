@@ -1,70 +1,91 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { View, StyleSheet, Text, Image, Button, TouchableOpacity} from 'react-native'
+import React from 'react'
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+export default function App() {
 
-export default function HomeScreen() {
+  const Commencer = () => {
+    alert('Le bouton cliquer')
+  }
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+    <View>
+      <View style={styles.topImageContainer}>
+         <Image source={require('../../assets/images/Group 1.png')} style={styles.topImage}/>
+      </View>
+
+      <View style={styles.LunchPageContainer}>
+        <Image source={require('../../assets/images/undraw_empty_cart_co35.png')} style={styles.LunchPageImage}/>
+      </View>
+
+      <View style={styles.textContainer}>
+        <Text style={styles.textIntro}>Laissez-vous guider pour vos achats</Text>
+      </View>
+      
+      <View style={styles.textDetailContainer}>
+        <Text style={styles.textDetail}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ad veritatis amet doloremque provident itaque aut nulla commodi aliquid dolore, labore incidunt dolor laboriosam perspiciatis alias voluptas accusamus, eaque impedit!</Text>
+      </View>
+
+      <TouchableOpacity style={styles.buttonContainer} onPress={Commencer}>
+        <Text style={styles.buttonStart}>Commencer</Text>
+      </TouchableOpacity>
+
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  topImageContainer: {
+    position: 'relative',
+
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  topImage: {
+    width: 250,
+    height: 290
+  }, 
+  LunchPageContainer: {
+  
+    marginBottom:30,
+    marginHorizontal: 80,
+
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  LunchPageImage: {
+   // position: 'absolute',
+    width: 300,
+    height: 200,
+    
   },
-});
+  textContainer: {
+    marginTop: 20,
+  
+  },
+  textIntro: {
+    textAlign : 'center',
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  textDetailContainer: {
+    marginTop: 40,
+    
+  
+  },
+  textDetail: {
+    textAlign : 'center',
+    fontSize: 14,
+  },
+  buttonContainer: {
+    marginTop: 50,
+    backgroundColor: '#E682ED',
+    marginHorizontal: 100,
+    height: 50,
+    //paddingVertical: 7,
+    borderRadius: 70
+    
+  },
+  buttonStart: {
+    color: 'white',
+    marginVertical: 16,
+    textAlign: 'center',
+    fontSize: 17,
+    fontWeight: 'bold'
+  }
+})
+
